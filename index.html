@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PHOTO NOVA</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>PHOTO NOVA</h1>
+  <div class="bar">
+    <button id="undo" disabled>Undo</button>
+    <button id="redo" disabled>Redo</button>
+    <button id="save" class="primary" disabled>Save</button>
+  </div>
+</header>
+<main>
+  <section id="stage">
+    <label id="drop">
+      <input type="file" id="file" accept="image/*" hidden>
+      <b>Open a photo</b><small>Tap here or drop an image</small>
+    </label>
+    <canvas id="cv" hidden></canvas>
+  </section>
+  <aside>
+    <nav id="tabs">
+      <button data-tab="looks" class="on">Looks</button>
+      <button data-tab="adjust">Adjust</button>
+      <button data-tab="crop">Crop</button>
+      <button data-tab="text">Text</button>
+    </nav>
+    <div id="panel">
+      <div data-p="looks" id="looks"></div>
+      <div data-p="adjust" hidden>
+        <div id="sliders"></div>
+        <button id="reset">Reset adjustments</button>
+      </div>
+      <div data-p="crop" hidden>
+        <div class="row" id="ratios">
+          <button data-r="0" class="on">Original</button>
+          <button data-r="1">1:1</button>
+          <button data-r="0.8">4:5</button>
+          <button data-r="1.3333">4:3</button>
+          <button data-r="1.7778">16:9</button>
+        </div>
+        <div class="row">
+          <button id="rotL">Rotate left</button>
+          <button id="rotR">Rotate right</button>
+          <button id="flipH">Flip horizontal</button>
+          <button id="flipV">Flip vertical</button>
+        </div>
+      </div>
+      <div data-p="text" hidden>
+        <input id="txt" type="text" placeholder="Type a caption" maxlength="60">
+        <label class="sl">Size <input id="tsize" type="range" min="3" max="20" value="8"></label>
+        <div class="row">
+          <input id="tcolor" type="color" value="#ffffff">
+          <button data-pos="top">Top</button>
+          <button data-pos="middle">Middle</button>
+          <button data-pos="bottom" class="on">Bottom</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+</main>
+<script src="filters.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
